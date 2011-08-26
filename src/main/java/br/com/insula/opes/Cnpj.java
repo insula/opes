@@ -42,7 +42,7 @@ public class Cnpj implements Serializable {
 		return new Cnpj(digits);
 	}
 
-	private static boolean isValid(String digits) {
+	static boolean isValid(String digits) {
 		char[] numbers = digits.toCharArray();
 		int soma = 0;
 
@@ -79,6 +79,12 @@ public class Cnpj implements Serializable {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s.%s.%s/%s-%s", numero.substring(0, 2), numero.substring(2, 5), numero.substring(5, 8),
+				numero.substring(8, 12), numero.substring(12));
 	}
 
 	public String getNumero() {

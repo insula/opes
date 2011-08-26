@@ -16,6 +16,7 @@
  */
 package br.com.insula.opes;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -48,4 +49,8 @@ public class CnpjTest {
 		Cnpj.fromString("012345678901234");
 	}
 
+	@Test
+	public void testToString() {
+		assertEquals("06.305.901/0001-78", Cnpj.fromString("06305901000178").toString());
+	}
 }

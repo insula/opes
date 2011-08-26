@@ -52,6 +52,15 @@ public class CpfCnpj implements Serializable {
 		throw new IllegalArgumentException("CPF/CNPJ inv\u00e1lido.");
 	}
 
+	@Override
+	public String toString() {
+		if (cpf != null) {
+			return cpf.toString();
+		} else {
+			return cnpj.toString();
+		}
+	}
+
 	public String getNumero() {
 		if (cpf != null) {
 			return cpf.getNumero();

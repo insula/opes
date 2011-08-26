@@ -16,6 +16,7 @@
  */
 package br.com.insula.opes;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -44,6 +45,12 @@ public class CpfTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testFromStringWith15Digits() {
 		Cpf.fromString("012345678901234");
+	}
+
+	@Test
+	public void testToString() {
+		assertEquals("005.333.839-19", Cpf.fromString("00533383919").toString());
+		assertEquals("030.405.039-36", Cpf.fromString("03040503936").toString());
 	}
 
 }

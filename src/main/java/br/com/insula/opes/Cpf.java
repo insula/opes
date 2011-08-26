@@ -38,7 +38,7 @@ public class Cpf implements Serializable {
 		return new Cpf(digits);
 	}
 
-	private static boolean isValid(String digits) {
+	static boolean isValid(String digits) {
 		char[] numbers = digits.toCharArray();
 		int soma = 0;
 
@@ -75,6 +75,12 @@ public class Cpf implements Serializable {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s.%s.%s-%s", numero.substring(0, 3), numero.substring(3, 6), numero.substring(6, 9),
+				numero.substring(9));
 	}
 
 	public String getNumero() {

@@ -1,31 +1,15 @@
-<project
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.insula</groupId>
 	<artifactId>opes</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<name>Projeto Opes</name>
-	<description>Classes de Modelo Comuns para Casos de Uso no Brasil</description>
+	<description>Sugestões de classes imutáveis para Rich Domain Model de casos de uso do Brasil</description>
 	<organization>
 		<name>Insula Tecnologia</name>
 		<url>http://www.insula.com.br</url>
 	</organization>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 	<repositories>
 		<repository>
 			<id>JBoss Repo</id>
@@ -33,6 +17,16 @@
 			<name>JBoss Repo</name>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>maven-oss-insula</id>
+			<url>s3://maven-oss.insula.com.br/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>maven-oss-insula-snapshot</id>
+			<url>s3://maven-oss.insula.com.br/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
 	</properties>
@@ -66,4 +60,25 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.springframework.build.aws</groupId>
+				<artifactId>org.springframework.build.aws.maven</artifactId>
+				<version>3.0.0.RELEASE</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
