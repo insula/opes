@@ -35,9 +35,10 @@ public class Telefone implements Serializable {
 
 	public static Telefone fromString(String s) {
 		Assert.notNull(s);
-		Assert.matches("\\d{6,14}", s);
+		String digits = s.replaceAll("\\D", "");
+		Assert.matches("\\d{8,13}", digits);
 
-		return new Telefone(s);
+		return new Telefone(digits);
 	}
 
 	@Override
@@ -59,7 +60,19 @@ public class Telefone implements Serializable {
 
 	@Override
 	public String toString() {
-		return numero;
+		switch (numero.length()) {
+		case 8:
+		case 9:
+			return String.format("%s-%s", numero.substring(0, 4), numero.substring(4));
+		case 10:
+		case 11:
+			return String.format("(%s) %s-%s", numero.substring(0, 2), numero.substring(2, 6), numero.substring(6));
+		case 12:
+		case 13:
+			return String.format("+%s (%s) %s-%s", numero.substring(0, 2), numero.substring(2, 4),
+					numero.substring(4, 8), numero.substring(8));
+		}
+		throw new IllegalStateException("Telefone com n.o de d\u00edgitos inv\u00e1lido");
 	}
 
 	public String getNumero() {

@@ -16,9 +16,7 @@ public class CepTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testFromInvalidString() {
-		Cep cep = Cep.fromString("8703002");
-		assertNotNull(cep);
-		assertEquals("87030-020", cep.toString());
+		Cep.fromString("8703002");
 	}
 
 }
