@@ -53,4 +53,9 @@ public class CpfTest {
 		assertEquals("030.405.039-36", Cpf.fromString("03040503936").toString());
 	}
 
+	@Test
+	public void testEquals() {
+		assertEquals(CpfCnpj.fromString("00533383919"), CpfCnpj.fromString("00533383919"));
+	}
+
 }

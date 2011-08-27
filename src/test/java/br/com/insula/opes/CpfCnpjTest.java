@@ -16,6 +16,7 @@
  */
 package br.com.insula.opes;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -50,4 +51,8 @@ public class CpfCnpjTest {
 		CpfCnpj.fromString("012345678901234");
 	}
 
+	@Test
+	public void testEquals() {
+		assertEquals(CpfCnpj.fromString("00533383919"), CpfCnpj.fromString("00533383919"));
+	}
 }

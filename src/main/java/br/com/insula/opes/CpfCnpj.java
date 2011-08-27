@@ -18,6 +18,9 @@ package br.com.insula.opes;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public class CpfCnpj implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -40,23 +43,43 @@ public class CpfCnpj implements Serializable {
 		try {
 			Cpf cpf = Cpf.fromString(s);
 			return new CpfCnpj(cpf);
-		} catch (IllegalArgumentException ex) {
+		}
+		catch (IllegalArgumentException ex) {
 		}
 
 		try {
 			Cnpj cnpj = Cnpj.fromString(s);
 			return new CpfCnpj(cnpj);
-		} catch (IllegalArgumentException ex) {
+		}
+		catch (IllegalArgumentException ex) {
 		}
 
 		throw new IllegalArgumentException("CPF/CNPJ inv\u00e1lido.");
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (obj instanceof CpfCnpj) {
+			CpfCnpj other = (CpfCnpj) obj;
+			return new EqualsBuilder().append(this.cpf, other.cpf).append(this.cnpj, other.cnpj).isEquals();
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(this.cpf).append(this.cnpj).toHashCode();
+	}
+
+	@Override
 	public String toString() {
 		if (cpf != null) {
 			return cpf.toString();
-		} else {
+		}
+		else {
 			return cnpj.toString();
 		}
 	}
@@ -64,7 +87,8 @@ public class CpfCnpj implements Serializable {
 	public String getNumero() {
 		if (cpf != null) {
 			return cpf.getNumero();
-		} else {
+		}
+		else {
 			return cnpj.getNumero();
 		}
 	}

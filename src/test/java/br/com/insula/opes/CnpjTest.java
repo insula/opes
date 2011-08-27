@@ -53,4 +53,10 @@ public class CnpjTest {
 	public void testToString() {
 		assertEquals("06.305.901/0001-78", Cnpj.fromString("06305901000178").toString());
 	}
+
+	@Test
+	public void testEquals() {
+		assertEquals(CpfCnpj.fromString("06305901000178"), CpfCnpj.fromString("06.305.901/0001-78"));
+	}
+
 }

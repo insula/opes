@@ -27,9 +27,6 @@
 			<url>s3://maven-oss.insula.com.br/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
-	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>commons-lang</groupId>

@@ -18,6 +18,9 @@ package br.com.insula.opes;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import br.com.insula.opes.util.Assert;
 
 public class Cpf implements Serializable {
@@ -75,6 +78,23 @@ public class Cpf implements Serializable {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (obj instanceof Cpf) {
+			Cpf other = (Cpf) obj;
+			return new EqualsBuilder().append(this.numero, other.numero).isEquals();
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(this.numero).toHashCode();
 	}
 
 	@Override
