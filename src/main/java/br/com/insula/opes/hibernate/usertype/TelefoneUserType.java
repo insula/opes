@@ -47,7 +47,7 @@ public class TelefoneUserType extends ImmutableUserType {
 			st.setNull(index, Types.VARCHAR);
 		} else {
 			Telefone telefone = (Telefone) value;
-			st.setString(index, telefone.getNumero());
+			st.setString(index, telefone.toString());
 		}
 	}
 

@@ -18,12 +18,16 @@ package br.com.insula.opes;
 
 import java.io.Serializable;
 
+import java.util.Formattable;
+import java.util.Formatter;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import br.com.insula.opes.util.Assert;
+import static java.util.FormattableFlags.*;
 
-public class Telefone implements Serializable {
+public class Telefone implements Serializable, Formattable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -60,23 +64,52 @@ public class Telefone implements Serializable {
 
 	@Override
 	public String toString() {
-		switch (numero.length()) {
-		case 8:
-		case 9:
-			return String.format("%s-%s", numero.substring(0, 4), numero.substring(4));
-		case 10:
-		case 11:
-			return String.format("(%s) %s-%s", numero.substring(0, 2), numero.substring(2, 6), numero.substring(6));
-		case 12:
-		case 13:
-			return String.format("+%s (%s) %s-%s", numero.substring(0, 2), numero.substring(2, 4),
-					numero.substring(4, 8), numero.substring(8));
-		}
-		throw new IllegalStateException("Telefone com n.o de d\u00edgitos inv\u00e1lido");
+		return this.numero;
 	}
 
-	public String getNumero() {
-		return numero;
+	@Override
+	public void formatTo(Formatter formatter, int flags, int width, int precision) {
+		StringBuilder sb = new StringBuilder();
+		boolean alternate = (flags & ALTERNATE) == ALTERNATE;
+		if (alternate) {
+			sb.append(numero);
+		}
+		else {
+			switch (numero.length()) {
+			case 8:
+			case 9:
+				sb.append(String.format("%s-%s", numero.substring(0, 4), numero.substring(4)));
+				break;
+			case 10:
+			case 11:
+				sb.append(String.format("(%s) %s-%s", numero.substring(0, 2), numero.substring(2, 6),
+						numero.substring(6)));
+				break;
+			case 12:
+			case 13:
+				sb.append(String.format("+%s (%s) %s-%s", numero.substring(0, 2), numero.substring(2, 4),
+						numero.substring(4, 8), numero.substring(8)));
+				break;
+			}
+		}
+		int length = sb.length();
+		if (length < width) {
+			for (int i = 0; i < width - length; i++) {
+				if (alternate) {
+					sb.insert(0, '0');
+				}
+				else {
+					boolean leftJustified = (flags & LEFT_JUSTIFY) == LEFT_JUSTIFY;
+					if (leftJustified) {
+						sb.append(' ');
+					}
+					else {
+						sb.insert(0, ' ');
+					}
+				}
+			}
+		}
+		formatter.format(sb.toString());
 	}
 
 }

@@ -16,14 +16,19 @@
  */
 package br.com.insula.opes;
 
+import static java.util.FormattableFlags.ALTERNATE;
+import static java.util.FormattableFlags.LEFT_JUSTIFY;
+
 import java.io.Serializable;
+import java.util.Formattable;
+import java.util.Formatter;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import br.com.insula.opes.util.Assert;
 
-public class Cnpj implements Serializable {
+public class Cnpj implements Serializable, Formattable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -103,12 +108,38 @@ public class Cnpj implements Serializable {
 
 	@Override
 	public String toString() {
-		return String.format("%s.%s.%s/%s-%s", numero.substring(0, 2), numero.substring(2, 5), numero.substring(5, 8),
-				numero.substring(8, 12), numero.substring(12));
+		return this.numero;
 	}
 
-	public String getNumero() {
-		return numero;
+	@Override
+	public void formatTo(Formatter formatter, int flags, int width, int precision) {
+		StringBuilder sb = new StringBuilder();
+		boolean alternate = (flags & ALTERNATE) == ALTERNATE;
+		if (alternate) {
+			sb.append(numero);
+		}
+		else {
+			sb.append(String.format("%s.%s.%s/%s-%s", numero.substring(0, 2), numero.substring(2, 5),
+					numero.substring(5, 8), numero.substring(8, 12), numero.substring(12)));
+		}
+		int length = sb.length();
+		if (length < width) {
+			for (int i = 0; i < width - length; i++) {
+				if (alternate) {
+					sb.insert(0, '0');
+				}
+				else {
+					boolean leftJustified = (flags & LEFT_JUSTIFY) == LEFT_JUSTIFY;
+					if (leftJustified) {
+						sb.append(' ');
+					}
+					else {
+						sb.insert(0, ' ');
+					}
+				}
+			}
+		}
+		formatter.format(sb.toString());
 	}
 
 }

@@ -47,7 +47,7 @@ public class CnpjUserType extends ImmutableUserType {
 			st.setNull(index, Types.VARCHAR);
 		} else {
 			Cnpj cnpj = (Cnpj) value;
-			st.setString(index, cnpj.getNumero());
+			st.setString(index, cnpj.toString());
 		}
 	}
 

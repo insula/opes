@@ -23,37 +23,37 @@ import java.sql.Types;
 
 import org.hibernate.HibernateException;
 
-import br.com.insula.opes.CpfCnpj;
+import br.com.insula.opes.Agencia;
 
-public class CpfCnpjUserType extends ImmutableUserType {
+public class AgenciaUserType extends ImmutableUserType {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public Object nullSafeGet(ResultSet rs, String[] names, Object owner)
-			throws HibernateException, SQLException {
+	public Object nullSafeGet(ResultSet rs, String[] names, Object owner) throws HibernateException, SQLException {
 		String value = rs.getString(names[0]);
 		if (rs.wasNull()) {
 			return null;
-		} else {
-			return CpfCnpj.fromString(value);
+		}
+		else {
+			return Agencia.fromString(value);
 		}
 	}
 
 	@Override
-	public void nullSafeSet(PreparedStatement st, Object value, int index)
-			throws HibernateException, SQLException {
+	public void nullSafeSet(PreparedStatement st, Object value, int index) throws HibernateException, SQLException {
 		if (value == null) {
 			st.setNull(index, Types.VARCHAR);
-		} else {
-			CpfCnpj cpfCnpj = (CpfCnpj) value;
-			st.setString(index, cpfCnpj.toString());
+		}
+		else {
+			Agencia agencia = (Agencia) value;
+			st.setString(index, agencia.toString());
 		}
 	}
 
 	@Override
 	public Class<?> returnedClass() {
-		return CpfCnpj.class;
+		return Agencia.class;
 	}
 
 	@Override

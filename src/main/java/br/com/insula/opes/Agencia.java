@@ -1,19 +1,3 @@
-/*
-    This file is part of Opes.
-
-    Opes is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Lesser General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Opes is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public License
-    along with Opes.  If not, see <http://www.gnu.org/licenses/>.
- */
 package br.com.insula.opes;
 
 import static java.util.FormattableFlags.ALTERNATE;
@@ -28,14 +12,17 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import br.com.insula.opes.util.Assert;
 
-public class Cep implements Serializable, Formattable {
+public class Agencia implements Serializable, Formattable {
 
 	private static final long serialVersionUID = 1L;
 
 	private final String numero;
 
-	private Cep(String numero) {
+	private final String dv;
+
+	private Agencia(String numero, String dv) {
 		this.numero = numero;
+		this.dv = dv;
 	}
 
 	@Override
@@ -43,21 +30,21 @@ public class Cep implements Serializable, Formattable {
 		if (obj == this) {
 			return true;
 		}
-		if (obj instanceof Cep) {
-			Cep other = (Cep) obj;
-			return new EqualsBuilder().append(this.numero, other.numero).isEquals();
+		if (obj instanceof Agencia) {
+			Agencia other = (Agencia) obj;
+			return new EqualsBuilder().append(this.numero, other.numero).append(this.dv, other.dv).isEquals();
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.numero).toHashCode();
+		return new HashCodeBuilder().append(this.numero).append(this.dv).toHashCode();
 	}
 
 	@Override
 	public String toString() {
-		return this.numero;
+		return String.format("%s%s", numero, dv);
 	}
 
 	@Override
@@ -66,11 +53,12 @@ public class Cep implements Serializable, Formattable {
 		boolean alternate = (flags & ALTERNATE) == ALTERNATE;
 		if (alternate) {
 			sb.append(numero);
+			sb.append(dv);
 		}
 		else {
-			sb.append(numero.substring(0, 5));
+			sb.append(numero);
 			sb.append("-");
-			sb.append(numero.substring(5));
+			sb.append(dv);
 		}
 		int length = sb.length();
 		if (length < width) {
@@ -92,12 +80,13 @@ public class Cep implements Serializable, Formattable {
 		formatter.format(sb.toString());
 	}
 
-	public static Cep fromString(String s) {
+	public static Agencia fromString(String s) {
 		Assert.notNull(s);
-		String digits = s.replaceAll("\\D", "");
-		Assert.matches("\\d{8}", digits);
+		String digits = s.replaceAll("\\W", "");
+		Assert.isTrue(digits.matches("\\d+\\w"));
 
-		return new Cep(digits);
+		int length = digits.length();
+		return new Agencia(digits.substring(0, length - 1), digits.substring(length - 1));
 	}
 
 }

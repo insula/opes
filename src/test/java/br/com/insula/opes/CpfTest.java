@@ -49,8 +49,19 @@ public class CpfTest {
 
 	@Test
 	public void testToString() {
-		assertEquals("005.333.839-19", Cpf.fromString("00533383919").toString());
-		assertEquals("030.405.039-36", Cpf.fromString("03040503936").toString());
+		assertEquals("00533383919", Cpf.fromString("00533383919").toString());
+		assertEquals("03040503936", Cpf.fromString("03040503936").toString());
+	}
+
+	@Test
+	public void testFormatTo() {
+		assertEquals("005.333.839-19", String.format("%s", Cpf.fromString("00533383919")));
+		assertEquals("030.405.039-36", String.format("%s", Cpf.fromString("03040503936")));
+	}
+
+	@Test
+	public void testFormatToAlternate() {
+		assertEquals("000000533383919", String.format("%#15s", Cpf.fromString("00533383919")));
 	}
 
 	@Test

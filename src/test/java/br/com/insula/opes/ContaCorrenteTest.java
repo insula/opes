@@ -16,35 +16,36 @@
  */
 package br.com.insula.opes;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class CepTest {
+public class ContaCorrenteTest {
+
+	@Test
+	public void testToString() {
+		ContaCorrente contaCorrente = ContaCorrente.fromString("3522");
+		assertEquals("3522", contaCorrente.toString());
+	}
 
 	@Test
 	public void testFromString() {
-		Cep cep = Cep.fromString("87030-020");
-		assertNotNull(cep);
-		assertEquals("87030020", cep.toString());
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testFromInvalidString() {
-		Cep.fromString("8703002");
+		ContaCorrente contaCorrente = ContaCorrente.fromString("0975-X");
+		assertEquals("0975X", contaCorrente.toString());
 	}
 
 	@Test
 	public void testFormatToAlternate() {
-		Cep cep = Cep.fromString("87030-020");
-		assertEquals("87030020", String.format("%#s", cep));
+		ContaCorrente contaCorrente = ContaCorrente.fromString("352-2");
+		assertEquals("003522", String.format("%#6s", contaCorrente));
 	}
 
 	@Test
 	public void testFormatTo() {
-		Cep cep = Cep.fromString("87030-020");
-		assertEquals("87030-020", String.format("%s", cep));
+		ContaCorrente contaCorrente = ContaCorrente.fromString("352-2");
+		assertEquals("352-2", String.format("%s", contaCorrente));
+		assertEquals("  352-2", String.format("%7s", contaCorrente));
+		assertEquals("352-2   ", String.format("%-8s", contaCorrente));
 	}
 
 }

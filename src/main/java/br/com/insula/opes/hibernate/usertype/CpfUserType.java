@@ -47,7 +47,7 @@ public class CpfUserType extends ImmutableUserType {
 			st.setNull(index, Types.VARCHAR);
 		} else {
 			Cpf cpf = (Cpf) value;
-			st.setString(index, cpf.getNumero());
+			st.setString(index, cpf.toString());
 		}
 	}
 

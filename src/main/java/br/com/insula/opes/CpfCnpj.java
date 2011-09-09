@@ -17,11 +17,13 @@
 package br.com.insula.opes;
 
 import java.io.Serializable;
+import java.util.Formattable;
+import java.util.Formatter;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-public class CpfCnpj implements Serializable {
+public class CpfCnpj implements Serializable, Formattable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -54,7 +56,7 @@ public class CpfCnpj implements Serializable {
 		catch (IllegalArgumentException ex) {
 		}
 
-		throw new IllegalArgumentException("CPF/CNPJ inv\u00e1lido.");
+		throw new IllegalArgumentException(String.format("CPF/CNPJ inv\u00e1lido: %s.", s));
 	}
 
 	@Override
@@ -84,12 +86,13 @@ public class CpfCnpj implements Serializable {
 		}
 	}
 
-	public String getNumero() {
+	@Override
+	public void formatTo(Formatter formatter, int flags, int width, int precision) {
 		if (cpf != null) {
-			return cpf.getNumero();
+			cpf.formatTo(formatter, flags, width, precision);
 		}
 		else {
-			return cnpj.getNumero();
+			cnpj.formatTo(formatter, flags, width, precision);
 		}
 	}
 

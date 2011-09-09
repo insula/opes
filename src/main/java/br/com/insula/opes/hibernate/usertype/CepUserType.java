@@ -47,7 +47,7 @@ public class CepUserType extends ImmutableUserType {
 			st.setNull(index, Types.VARCHAR);
 		} else {
 			Cep cep = (Cep) value;
-			st.setString(index, cep.getNumero());
+			st.setString(index, cep.toString());
 		}
 	}
 

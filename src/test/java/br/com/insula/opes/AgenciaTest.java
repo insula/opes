@@ -16,35 +16,36 @@
  */
 package br.com.insula.opes;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class CepTest {
+public class AgenciaTest {
+
+	@Test
+	public void testToString() {
+		Agencia agencia = Agencia.fromString("3522");
+		assertEquals("3522", agencia.toString());
+	}
 
 	@Test
 	public void testFromString() {
-		Cep cep = Cep.fromString("87030-020");
-		assertNotNull(cep);
-		assertEquals("87030020", cep.toString());
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testFromInvalidString() {
-		Cep.fromString("8703002");
+		Agencia agencia = Agencia.fromString("0975-X");
+		assertEquals("0975X", agencia.toString());
 	}
 
 	@Test
 	public void testFormatToAlternate() {
-		Cep cep = Cep.fromString("87030-020");
-		assertEquals("87030020", String.format("%#s", cep));
+		Agencia agencia = Agencia.fromString("352-2");
+		assertEquals("003522", String.format("%#6s", agencia));
 	}
 
 	@Test
 	public void testFormatTo() {
-		Cep cep = Cep.fromString("87030-020");
-		assertEquals("87030-020", String.format("%s", cep));
+		Agencia agencia = Agencia.fromString("352-2");
+		assertEquals("352-2", String.format("%s", agencia));
+		assertEquals("  352-2", String.format("%7s", agencia));
+		assertEquals("352-2   ", String.format("%-8s", agencia));
 	}
 
 }
