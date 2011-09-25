@@ -82,7 +82,7 @@ public class ContaCorrente implements Serializable, Formattable {
 
 	public static ContaCorrente fromString(String s) {
 		Assert.notNull(s);
-		String digits = s.replaceAll("\\W", "");
+		String digits = s.replaceAll("\\W", "").replaceAll("^0*", "");;
 		Assert.isTrue(digits.matches("\\d+\\w"));
 
 		int length = digits.length();

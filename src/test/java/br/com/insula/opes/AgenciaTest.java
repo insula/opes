@@ -31,7 +31,7 @@ public class AgenciaTest {
 	@Test
 	public void testFromString() {
 		Agencia agencia = Agencia.fromString("0975-X");
-		assertEquals("0975X", agencia.toString());
+		assertEquals("975X", agencia.toString());
 	}
 
 	@Test

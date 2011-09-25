@@ -31,7 +31,7 @@ public class ContaCorrenteTest {
 	@Test
 	public void testFromString() {
 		ContaCorrente contaCorrente = ContaCorrente.fromString("0975-X");
-		assertEquals("0975X", contaCorrente.toString());
+		assertEquals("975X", contaCorrente.toString());
 	}
 
 	@Test
