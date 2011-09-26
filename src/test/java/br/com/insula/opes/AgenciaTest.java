@@ -35,6 +35,12 @@ public class AgenciaTest {
 	}
 
 	@Test
+	public void testFromStringWithManyLeadingZeroes() {
+		Agencia agencia = Agencia.fromString("00035122");
+		assertEquals("35122", agencia.toString());
+	}
+
+	@Test
 	public void testFormatToAlternate() {
 		Agencia agencia = Agencia.fromString("352-2");
 		assertEquals("003522", String.format("%#6s", agencia));
