@@ -9,8 +9,6 @@ import java.sql.Types;
 import org.hibernate.HibernateException;
 import org.joda.time.DateMidnight;
 
-import br.com.insula.opes.hibernate.usertype.ImmutableUserType;
-
 public class DateMidnightUserType extends ImmutableUserType {
 
 	private static final long serialVersionUID = 1L;

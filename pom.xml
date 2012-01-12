@@ -10,13 +10,11 @@
 		<name>Insula Tecnologia</name>
 		<url>http://www.insula.com.br</url>
 	</organization>
-	<repositories>
-		<repository>
-			<id>JBoss Repo</id>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-			<name>JBoss Repo</name>
-		</repository>
-	</repositories>
+	<scm>
+		<connection>scm:git:git@github.com:insula/opes.git</connection>
+		<url>scm:git:git@github.com:insula/opes.git</url>
+		<developerConnection>scm:git:git@github.com:insula/opes.git</developerConnection>
+	</scm>
 	<distributionManagement>
 		<repository>
 			<id>maven-oss-insula</id>
@@ -27,6 +25,28 @@
 			<url>s3://maven-oss.insula.com.br/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+	<developers>
+		<developer>
+			<id>yanaga</id>
+			<name>Edson Yanaga</name>
+			<email>yanaga@insula.com.br</email>
+			<url>http://www.yanaga.com.br</url>
+			<organization>Insula Tecnologia</organization>
+			<organizationUrl>http://insula.com.br</organizationUrl>
+			<timezone>-3</timezone>
+			<roles>
+				<role>Project Leader</role>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+	<repositories>
+		<repository>
+			<id>JBoss Repo</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+			<name>JBoss Repo</name>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -80,6 +100,16 @@
 					<source>1.6</source>
 					<target>1.6</target>
 					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.2.2</version>
+				<configuration>
+					<goals>
+						source:jar javadoc:jar deploy
+					</goals>
 				</configuration>
 			</plugin>
 		</plugins>
