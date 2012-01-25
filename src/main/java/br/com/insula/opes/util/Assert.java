@@ -27,6 +27,12 @@ public class Assert {
 		}
 	}
 
+	public static void hasText(String value) {
+		if (value == null || value.trim().isEmpty()) {
+			throw new IllegalArgumentException("String n\u00e3o pode ser vazia.");
+		}
+	}
+
 	public static void matches(String pattern, Object obj) {
 		notNull(pattern);
 		notNull(obj);
