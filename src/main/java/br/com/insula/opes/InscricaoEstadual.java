@@ -2,6 +2,9 @@ package br.com.insula.opes;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import br.com.insula.opes.util.Assert;
 
 public class InscricaoEstadual implements Serializable {
@@ -30,6 +33,23 @@ public class InscricaoEstadual implements Serializable {
 	@Override
 	public String toString() {
 		return value;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (obj instanceof InscricaoEstadual) {
+			InscricaoEstadual other = (InscricaoEstadual) obj;
+			return new EqualsBuilder().append(this.value, other.value).isEquals();
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(this.value).toHashCode();
 	}
 
 }
