@@ -40,7 +40,7 @@ public class Telefone implements Serializable, Formattable {
 	public static Telefone fromString(String s) {
 		Assert.notNull(s);
 		String digits = s.replaceAll("\\D", "");
-		Assert.matches("\\d{8,13}", digits);
+		Assert.matches("\\d{10,13}", digits);
 
 		return new Telefone(digits);
 	}

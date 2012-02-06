@@ -25,14 +25,12 @@ public class TelefoneTest {
 	@Test
 	public void testFromString() {
 		assertNotNull(Telefone.fromString("(44) 4052-9211"));
-		assertNotNull(Telefone.fromString("4052-9211"));
-		assertNotNull(Telefone.fromString("14052-9211"));
 		assertNotNull(Telefone.fromString("+55 (44) 4052-9211"));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testFromStringWithLessDigits() {
-		Telefone.fromString("1234567");
+		Telefone.fromString("4052-9211");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -42,8 +40,6 @@ public class TelefoneTest {
 
 	@Test
 	public void testToString() {
-		assertEquals("40529211", Telefone.fromString("40529211").toString());
-		assertEquals("140529211", Telefone.fromString("140529211").toString());
 		assertEquals("4440529211", Telefone.fromString("4440529211").toString());
 		assertEquals("44405292110", Telefone.fromString("44405292110").toString());
 		assertEquals("554440529211", Telefone.fromString("554440529211").toString());
@@ -52,8 +48,6 @@ public class TelefoneTest {
 
 	@Test
 	public void testFormatTo() {
-		assertEquals("4052-9211", String.format("%s", Telefone.fromString("40529211")));
-		assertEquals("1405-29211", String.format("%s", Telefone.fromString("140529211")));
 		assertEquals("(44) 4052-9211", String.format("%s", Telefone.fromString("4440529211")));
 		assertEquals("(44) 4052-92110", String.format("%s", Telefone.fromString("44405292110")));
 		assertEquals("+55 (44) 4052-9211", String.format("%s", Telefone.fromString("554440529211")));
