@@ -16,8 +16,10 @@
  */
 package br.com.insula.opes;
 
-import java.io.Serializable;
+import static java.util.FormattableFlags.ALTERNATE;
+import static java.util.FormattableFlags.LEFT_JUSTIFY;
 
+import java.io.Serializable;
 import java.util.Formattable;
 import java.util.Formatter;
 
@@ -25,7 +27,6 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import br.com.insula.opes.util.Assert;
-import static java.util.FormattableFlags.*;
 
 public class Telefone implements Serializable, Formattable {
 
@@ -37,7 +38,20 @@ public class Telefone implements Serializable, Formattable {
 		this.numero = numero;
 	}
 
+	@Deprecated
 	public static Telefone fromString(String s) {
+		return newTelefone(s);
+	}
+
+	public static Telefone newTelefone(String s) {
+		Assert.notNull(s);
+		String digits = s.replaceAll("\\D", "");
+		Assert.matches("\\d{8,13}", digits);
+
+		return new Telefone(digits);
+	}
+
+	public static Telefone newTelefoneComDdd(String s) {
 		Assert.notNull(s);
 		String digits = s.replaceAll("\\D", "");
 		Assert.matches("\\d{10,13}", digits);
