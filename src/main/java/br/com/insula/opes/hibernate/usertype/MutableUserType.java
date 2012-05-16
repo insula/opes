@@ -26,22 +26,6 @@ public abstract class MutableUserType implements UserType, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public boolean equals(Object x, Object y) throws HibernateException {
-		if (x == y) {
-			return true;
-		}
-		if (x == null || y == null) {
-			return false;
-		}
-		return x.equals(y);
-	}
-
-	@Override
-	public int hashCode(Object x) throws HibernateException {
-		return x.hashCode();
-	}
-
-	@Override
 	public boolean isMutable() {
 		return true;
 	}

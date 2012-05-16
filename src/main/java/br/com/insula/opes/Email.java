@@ -20,10 +20,9 @@ import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-
 import br.com.insula.opes.util.Assert;
+
+import com.google.common.base.Objects;
 
 public class Email implements Serializable {
 
@@ -51,14 +50,14 @@ public class Email implements Serializable {
 		}
 		if (obj instanceof Email) {
 			Email other = (Email) obj;
-			return new EqualsBuilder().append(this.value, other.value).isEquals();
+			return Objects.equal(this.value, other.value);
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.value).toHashCode();
+		return Objects.hashCode(this.value);
 	}
 
 	@Override

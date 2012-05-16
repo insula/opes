@@ -20,8 +20,7 @@ import java.io.Serializable;
 import java.util.Formattable;
 import java.util.Formatter;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
+import com.google.common.base.Objects;
 
 public class CpfCnpj implements Serializable, Formattable {
 
@@ -66,14 +65,14 @@ public class CpfCnpj implements Serializable, Formattable {
 		}
 		if (obj instanceof CpfCnpj) {
 			CpfCnpj other = (CpfCnpj) obj;
-			return new EqualsBuilder().append(this.cpf, other.cpf).append(this.cnpj, other.cnpj).isEquals();
+			return Objects.equal(this.cpf, other.cpf) && Objects.equal(this.cnpj, other.cnpj);
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.cpf).append(this.cnpj).toHashCode();
+		return Objects.hashCode(this.cpf, this.cnpj);
 	}
 
 	@Override

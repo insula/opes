@@ -7,10 +7,9 @@ import java.io.Serializable;
 import java.util.Formattable;
 import java.util.Formatter;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-
 import br.com.insula.opes.util.Assert;
+
+import com.google.common.base.Objects;
 
 public class ContaCorrente implements Serializable, Formattable {
 
@@ -32,14 +31,14 @@ public class ContaCorrente implements Serializable, Formattable {
 		}
 		if (obj instanceof ContaCorrente) {
 			ContaCorrente other = (ContaCorrente) obj;
-			return new EqualsBuilder().append(this.numero, other.numero).append(this.dv, other.dv).isEquals();
+			return Objects.equal(this.numero, other.numero) && Objects.equal(this.dv, other.dv);
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.numero).append(this.dv).toHashCode();
+		return Objects.hashCode(this.numero, this.dv);
 	}
 
 	@Override

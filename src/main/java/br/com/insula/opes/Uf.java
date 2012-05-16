@@ -1,5 +1,10 @@
 package br.com.insula.opes;
 
+import java.util.Map;
+
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap.Builder;
+
 public enum Uf {
 
 	AC(12, "Acre"),
@@ -58,9 +63,23 @@ public enum Uf {
 
 	EX(0, "Exterior");
 
-	private String nome;
+	private static final Map<Integer, Uf> codigoMap;
 
-	private int codigoIbge;
+	static {
+		Builder<Integer, Uf> builder = ImmutableMap.builder();
+		for (Uf uf : values()) {
+			builder.put(uf.getCodigoIbge(), uf);
+		}
+		codigoMap = builder.build();
+	}
+
+	public static Uf fromCodigoIbge(int codigo) {
+		return codigoMap.get(codigo);
+	}
+
+	private final String nome;
+
+	private final int codigoIbge;
 
 	private Uf(int codigoIbge, String nome) {
 		this.codigoIbge = codigoIbge;

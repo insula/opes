@@ -23,10 +23,9 @@ import java.io.Serializable;
 import java.util.Formattable;
 import java.util.Formatter;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-
 import br.com.insula.opes.util.Assert;
+
+import com.google.common.base.Objects;
 
 public class Cnpj implements Serializable, Formattable {
 
@@ -96,14 +95,14 @@ public class Cnpj implements Serializable, Formattable {
 		}
 		if (obj instanceof Cnpj) {
 			Cnpj other = (Cnpj) obj;
-			return new EqualsBuilder().append(this.numero, other.numero).isEquals();
+			return Objects.equal(this.numero, other.numero);
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.numero).toHashCode();
+		return Objects.hashCode(this.numero);
 	}
 
 	@Override

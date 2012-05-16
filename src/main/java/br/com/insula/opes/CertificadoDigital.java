@@ -118,7 +118,7 @@ public final class CertificadoDigital implements Serializable {
 		return bytes;
 	}
 
-	public Node sign(Node node) {
+	public <T extends Node> T sign(T node) {
 		Assert.notNull(node);
 		Assert.isTrue(node instanceof Document || node instanceof Element);
 		try {
@@ -212,17 +212,16 @@ public final class CertificadoDigital implements Serializable {
 
 	private static class X509KeySelector extends KeySelector {
 
+		@Override
 		public KeySelectorResult select(KeyInfo keyInfo, KeySelector.Purpose purpose, AlgorithmMethod method,
 				XMLCryptoContext context) throws KeySelectorException {
 
-			@SuppressWarnings("unchecked")
 			Iterator<XMLStructure> ki = keyInfo.getContent().iterator();
 
 			while (ki.hasNext()) {
 				XMLStructure info = ki.next();
 				if (info instanceof X509Data) {
 					X509Data x509Data = (X509Data) info;
-					@SuppressWarnings("unchecked")
 					Iterator<Object> xi = x509Data.getContent().iterator();
 					while (xi.hasNext()) {
 						Object o = xi.next();
@@ -231,6 +230,7 @@ public final class CertificadoDigital implements Serializable {
 						final PublicKey key = ((X509Certificate) o).getPublicKey();
 						if (algEquals(method.getAlgorithm(), key.getAlgorithm())) {
 							return new KeySelectorResult() {
+								@Override
 								public Key getKey() {
 									return key;
 								}

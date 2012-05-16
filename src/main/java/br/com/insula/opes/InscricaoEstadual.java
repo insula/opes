@@ -2,10 +2,9 @@ package br.com.insula.opes;
 
 import java.io.Serializable;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-
 import br.com.insula.opes.util.Assert;
+
+import com.google.common.base.Objects;
 
 public class InscricaoEstadual implements Serializable {
 
@@ -42,14 +41,14 @@ public class InscricaoEstadual implements Serializable {
 		}
 		if (obj instanceof InscricaoEstadual) {
 			InscricaoEstadual other = (InscricaoEstadual) obj;
-			return new EqualsBuilder().append(this.value, other.value).isEquals();
+			return Objects.equal(this.value, other.value);
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(this.value).toHashCode();
+		return Objects.hashCode(this.value);
 	}
 
 }
