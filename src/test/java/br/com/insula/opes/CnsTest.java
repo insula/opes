@@ -1,6 +1,7 @@
 package br.com.insula.opes;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -30,6 +31,21 @@ public class CnsTest {
 		assertNotNull(Cns.fromString("170121420980005"));
 		assertNotNull(Cns.fromString("209845737170003"));
 		assertNotNull(Cns.fromString("102274884040008"));
+	}
+
+	@Test
+	public void testIsRepetido() {
+		String[] values = { "000000000000000", "111111111111111", "222222222222222", "333333333333333",
+				"777777777777777", "888888888888888", "999999999999999" };
+		for (String value : values) {
+			try {
+				Cns.fromString(value);
+				fail();
+			}
+			catch (IllegalArgumentException ex) {
+				assertNotNull(ex);
+			}
+		}
 	}
 
 	@Test(expected = IllegalArgumentException.class)
