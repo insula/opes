@@ -1,13 +1,13 @@
 package br.com.insula.opes;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.FormattableFlags.ALTERNATE;
 import static java.util.FormattableFlags.LEFT_JUSTIFY;
 
 import java.io.Serializable;
 import java.util.Formattable;
 import java.util.Formatter;
-
-import br.com.insula.opes.util.Assert;
 
 import com.google.common.base.Objects;
 
@@ -80,9 +80,9 @@ public class ContaCorrente implements Serializable, Formattable {
 	}
 
 	public static ContaCorrente fromString(String s) {
-		Assert.notNull(s);
+		checkNotNull(s);
 		String digits = s.replaceAll("\\W", "").replaceAll("^0*", "");
-		Assert.isTrue(digits.matches("\\d+\\w"));
+		checkArgument(digits.matches("\\d+\\w"));
 
 		int length = digits.length();
 		return new ContaCorrente(digits.substring(0, length - 1), digits.substring(length - 1));

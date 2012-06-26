@@ -16,14 +16,14 @@
  */
 package br.com.insula.opes;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.FormattableFlags.ALTERNATE;
 import static java.util.FormattableFlags.LEFT_JUSTIFY;
 
 import java.io.Serializable;
 import java.util.Formattable;
 import java.util.Formatter;
-
-import br.com.insula.opes.util.Assert;
 
 import com.google.common.base.Objects;
 
@@ -38,10 +38,10 @@ public class Cpf implements Serializable, Formattable {
 	}
 
 	public static Cpf fromString(String s) {
-		Assert.notNull(s);
+		checkNotNull(s);
 		String digits = s.replaceAll("\\D", "");
-		Assert.matches("\\d{11}", digits);
-		Assert.isTrue(isValid(digits));
+		checkArgument(digits.matches("\\d{11}"));
+		checkArgument(isValid(digits));
 		return new Cpf(digits);
 	}
 

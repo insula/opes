@@ -13,7 +13,7 @@ public class TelefoneJsonDeserializer extends JsonDeserializer<Telefone> {
 
 	@Override
 	public Telefone deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-		return Telefone.newTelefone(jp.getText());
+		return Telefone.fromString(jp.getText());
 	}
 
 }

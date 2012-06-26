@@ -1,5 +1,8 @@
 package br.com.insula.opes;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -45,8 +48,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import br.com.insula.opes.util.Assert;
 
 public final class CertificadoDigital implements Serializable {
 
@@ -119,8 +120,8 @@ public final class CertificadoDigital implements Serializable {
 	}
 
 	public <T extends Node> T sign(T node) {
-		Assert.notNull(node);
-		Assert.isTrue(node instanceof Document || node instanceof Element);
+		checkNotNull(node);
+		checkArgument(node instanceof Document || node instanceof Element);
 		try {
 			Element element = node instanceof Document ? ((Document) node).getDocumentElement() : (Element) node;
 			DOMSignContext dsc = new DOMSignContext(privateKey, element);
@@ -170,7 +171,7 @@ public final class CertificadoDigital implements Serializable {
 	}
 
 	public boolean validate(Document document) {
-		Assert.notNull(document);
+		checkNotNull(document);
 		try {
 			NodeList nl = document.getElementsByTagNameNS(XMLSignature.XMLNS, "Signature");
 			DOMValidateContext valContext = new DOMValidateContext(new X509KeySelector(), nl.item(0));
@@ -216,12 +217,14 @@ public final class CertificadoDigital implements Serializable {
 		public KeySelectorResult select(KeyInfo keyInfo, KeySelector.Purpose purpose, AlgorithmMethod method,
 				XMLCryptoContext context) throws KeySelectorException {
 
+			@SuppressWarnings("unchecked")
 			Iterator<XMLStructure> ki = keyInfo.getContent().iterator();
 
 			while (ki.hasNext()) {
 				XMLStructure info = ki.next();
 				if (info instanceof X509Data) {
 					X509Data x509Data = (X509Data) info;
+					@SuppressWarnings("unchecked")
 					Iterator<Object> xi = x509Data.getContent().iterator();
 					while (xi.hasNext()) {
 						Object o = xi.next();

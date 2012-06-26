@@ -16,11 +16,12 @@
  */
 package br.com.insula.opes;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import br.com.insula.opes.util.Assert;
 
 import com.google.common.base.Objects;
 
@@ -66,9 +67,9 @@ public class Email implements Serializable {
 	}
 
 	public static Email fromString(String s) {
-		Assert.notNull(s);
+		checkNotNull(s);
 		Matcher m = pattern.matcher(s);
-		Assert.isTrue(m.matches());
+		checkArgument(m.matches());
 
 		return new Email(s);
 	}

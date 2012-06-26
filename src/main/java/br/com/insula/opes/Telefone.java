@@ -16,14 +16,14 @@
  */
 package br.com.insula.opes;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.FormattableFlags.ALTERNATE;
 import static java.util.FormattableFlags.LEFT_JUSTIFY;
 
 import java.io.Serializable;
 import java.util.Formattable;
 import java.util.Formatter;
-
-import br.com.insula.opes.util.Assert;
 
 import com.google.common.base.Objects;
 
@@ -37,23 +37,10 @@ public class Telefone implements Serializable, Formattable {
 		this.numero = numero;
 	}
 
-	@Deprecated
 	public static Telefone fromString(String s) {
-		return newTelefone(s);
-	}
-
-	public static Telefone newTelefone(String s) {
-		Assert.notNull(s);
+		checkNotNull(s);
 		String digits = s.replaceAll("\\D", "");
-		Assert.matches("\\d{8,13}", digits);
-
-		return new Telefone(digits);
-	}
-
-	public static Telefone newTelefoneComDdd(String s) {
-		Assert.notNull(s);
-		String digits = s.replaceAll("\\D", "");
-		Assert.matches("\\d{10,13}", digits);
+		checkArgument(digits.matches("\\d{8,14}"));
 
 		return new Telefone(digits);
 	}
@@ -78,6 +65,10 @@ public class Telefone implements Serializable, Formattable {
 	@Override
 	public String toString() {
 		return this.numero;
+	}
+
+	public boolean isContemDdd() {
+		return numero.length() > 9;
 	}
 
 	@Override

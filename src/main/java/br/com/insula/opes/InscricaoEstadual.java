@@ -1,8 +1,9 @@
 package br.com.insula.opes;
 
-import java.io.Serializable;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
-import br.com.insula.opes.util.Assert;
+import java.io.Serializable;
 
 import com.google.common.base.Objects;
 
@@ -17,14 +18,14 @@ public class InscricaoEstadual implements Serializable {
 	}
 
 	public static InscricaoEstadual fromString(String s) {
-		Assert.hasText(s);
+		checkNotNull(s);
 		String upperCase = s.toUpperCase();
 		if ("ISENTO".equals(upperCase)) {
 			return new InscricaoEstadual(upperCase);
 		}
 		else {
 			String digits = s.replaceAll("\\D", "");
-			Assert.isTrue(digits.matches("\\d{2,14}"));
+			checkArgument(digits.matches("\\d{2,14}"));
 			return new InscricaoEstadual(digits);
 		}
 	}
