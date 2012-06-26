@@ -31,6 +31,12 @@ public class CnsTest {
 		assertNotNull(Cns.fromString("170121420980005"));
 		assertNotNull(Cns.fromString("209845737170003"));
 		assertNotNull(Cns.fromString("102274884040008"));
+		assertNotNull(Cns.fromString("102528846360018"));
+		assertNotNull(Cns.fromString("125214400290018"));
+		assertNotNull(Cns.fromString("123203468660018"));
+		assertNotNull(Cns.fromString("170151402820018"));
+		assertNotNull(Cns.fromString("108377694740018"));
+		assertNotNull(Cns.fromString("122857340360018"));
 	}
 
 	@Test
