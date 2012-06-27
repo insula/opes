@@ -1,0 +1,24 @@
+-classpath
+'/Volumes/Development/git/opes/target/checkout/target/classes:/Volumes/Development/git/opes/target/checkout/target/test-classes:/Users/yanaga/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/Users/yanaga/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar:/Users/yanaga/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar:/Users/yanaga/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/Users/yanaga/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/Users/yanaga/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/Users/yanaga/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.4/jackson-core-asl-1.9.4.jar:/Users/yanaga/.m2/repository/org/hibernate/hibernate-core/3.6.4.Final/hibernate-core-3.6.4.Final.jar:/Users/yanaga/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.0.Final/hibernate-jpa-2.0-api-1.0.0.Final.jar:/Users/yanaga/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.4/jackson-mapper-asl-1.9.4.jar:/Users/yanaga/.m2/repository/com/google/guava/guava/11.0.2/guava-11.0.2.jar:/Users/yanaga/.m2/repository/joda-time/joda-time/2.0/joda-time-2.0.jar:/Users/yanaga/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/Users/yanaga/.m2/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1.jar:/Users/yanaga/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/yanaga/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Volumes/Development/git/opes/target/checkout/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2012 <a href="http://www.insula.com.br">Insula Tecnologia</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Volumes/Development/git/opes/target/checkout/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Projeto Opes 1.2.3 Test API'
+-link
+'http://java.sun.com/javase/6/docs/api'
+-use
+-version
+-windowtitle
+'Projeto Opes 1.2.3 Test API'

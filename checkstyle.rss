@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>Projeto Opes - Checkstyle report</title>
+    <link>${project.url}</link>
+    <description>Projeto Opes - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2012 Insula Tecnologia</copyright>
+    <item>
+      <title>File: 36,
+             Errors: 2126,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>${project.url}/checkstyle.html</link>
+      <description>
+        <p>Click <a href="${project.url}/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.ContaCorrente.java">br/com/insula/opes/ContaCorrente.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  90
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.serializer.CpfCnpjJsonSerializer.java">br/com/insula/opes/json/serializer/CpfCnpjJsonSerializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  18
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.InscricaoEstadual.java">br/com/insula/opes/InscricaoEstadual.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  48
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.Uf.java">br/com/insula/opes/Uf.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  93
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.deserializer.CepJsonDeserializer.java">br/com/insula/opes/json/deserializer/CepJsonDeserializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  12
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.Agencia.java">br/com/insula/opes/Agencia.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  91
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.serializer.TelefoneJsonSerializer.java">br/com/insula/opes/json/serializer/TelefoneJsonSerializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  17
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.serializer.CepJsonSerializer.java">br/com/insula/opes/json/serializer/CepJsonSerializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  18
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.package-info.java">br/com/insula/opes/hibernate/usertype/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  37
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.CpfCnpjUserType.java">br/com/insula/opes/hibernate/usertype/CpfCnpjUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  45
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.CertificadoDigital.java">br/com/insula/opes/CertificadoDigital.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  273
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.InscricaoEstadualUserType.java">br/com/insula/opes/hibernate/usertype/InscricaoEstadualUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  50
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.DateMidnightUserType.java">br/com/insula/opes/hibernate/usertype/DateMidnightUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  50
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.Telefone.java">br/com/insula/opes/Telefone.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  118
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.CpfUserType.java">br/com/insula/opes/hibernate/usertype/CpfUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  45
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.serializer.EmailJsonSerializer.java">br/com/insula/opes/json/serializer/EmailJsonSerializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  17
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.ContaCorrenteUserType.java">br/com/insula/opes/hibernate/usertype/ContaCorrenteUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  49
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.DateTimeUserType.java">br/com/insula/opes/hibernate/usertype/DateTimeUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  51
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.AgenciaUserType.java">br/com/insula/opes/hibernate/usertype/AgenciaUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  49
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.Email.java">br/com/insula/opes/Email.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  54
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.Cep.java">br/com/insula/opes/Cep.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  82
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.EmailUserType.java">br/com/insula/opes/hibernate/usertype/EmailUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  45
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.MutableUserType.java">br/com/insula/opes/hibernate/usertype/MutableUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  35
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.deserializer.InscricaoEstadualJsonDeserializer.java">br/com/insula/opes/json/deserializer/InscricaoEstadualJsonDeserializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  12
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.deserializer.TelefoneJsonDeserializer.java">br/com/insula/opes/json/deserializer/TelefoneJsonDeserializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.CpfCnpj.java">br/com/insula/opes/CpfCnpj.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  95
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.CnpjUserType.java">br/com/insula/opes/hibernate/usertype/CnpjUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  45
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.serializer.InscricaoEstadualJsonSerializer.java">br/com/insula/opes/json/serializer/InscricaoEstadualJsonSerializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  18
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.deserializer.CpfCnpjJsonDeserializer.java">br/com/insula/opes/json/deserializer/CpfCnpjJsonDeserializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.Cns.java">br/com/insula/opes/Cns.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  84
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.Cnpj.java">br/com/insula/opes/Cnpj.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  153
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.json.deserializer.EmailJsonDeserializer.java">br/com/insula/opes/json/deserializer/EmailJsonDeserializer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.ImmutableUserType.java">br/com/insula/opes/hibernate/usertype/ImmutableUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  64
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.CepUserType.java">br/com/insula/opes/hibernate/usertype/CepUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  45
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.Cpf.java">br/com/insula/opes/Cpf.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  145
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.TelefoneUserType.java">br/com/insula/opes/hibernate/usertype/TelefoneUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  45
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+
