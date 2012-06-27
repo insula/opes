@@ -8,8 +8,8 @@
     <language>en-us</language>
     <copyright>&#169;2012 Insula Tecnologia</copyright>
     <item>
-      <title>File: 36,
-             Errors: 2126,
+      <title>File: 37,
+             Errors: 2175,
              Warnings: 0,
              Infos: 0
       </title>
@@ -403,6 +403,20 @@
                 </td>
                 <td>
                   45
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.CnsUserType.java">br/com/insula/opes/hibernate/usertype/CnsUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  49
                 </td>
               </tr>
                           <tr>
