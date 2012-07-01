@@ -31,10 +31,6 @@ public class Cnpj implements Serializable, Formattable {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final int[] multiplicadoresPrimeiroDigito = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-
-	private static final int[] multiplicadoresSegundoDigito = { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-
 	private final String numero;
 
 	private Cnpj(String numero) {
@@ -45,47 +41,20 @@ public class Cnpj implements Serializable, Formattable {
 		checkNotNull(s);
 		String digits = s.replaceAll("\\D", "");
 		checkArgument(digits.matches("\\d{14}"));
-		checkArgument(isValid(digits));
+		checkArgument(!digits.matches("(\\d)\\1+"));
+		checkArgument(somaPonderada(digits.substring(0, 13)) % 11 < 2);
+		checkArgument(somaPonderada(digits) % 11 < 2);
 		return new Cnpj(digits);
 	}
 
-	static boolean isValid(String digits) {
-		char[] numbers = digits.toCharArray();
+	static int somaPonderada(String digits) {
+		char[] cs = digits.toCharArray();
 		int soma = 0;
-
-		for (int i = 0; i < multiplicadoresPrimeiroDigito.length; i++) {
-			soma += Character.digit(numbers[i], 10) * multiplicadoresPrimeiroDigito[i];
+		for (int i = 0; i < cs.length; i++) {
+			int index = cs.length - i - 1;
+			soma += Character.digit(cs[i], 10) * ((index % 9 + 1) + (index / 9));
 		}
-
-		int resto = soma % 11;
-		if (resto < 2) {
-			if (Character.digit(numbers[12], 10) != 0) {
-				return false;
-			}
-		}
-		else {
-			if (Character.digit(numbers[12], 10) != 11 - resto) {
-				return false;
-			}
-		}
-
-		soma = 0;
-		for (int i = 0; i < multiplicadoresSegundoDigito.length; i++) {
-			soma += Character.digit(numbers[i], 10) * multiplicadoresSegundoDigito[i];
-		}
-
-		resto = soma % 11;
-		if (resto < 2) {
-			if (Character.digit(numbers[13], 10) != 0) {
-				return false;
-			}
-		}
-		else {
-			if (Character.digit(numbers[13], 10) != 11 - resto) {
-				return false;
-			}
-		}
-		return true;
+		return soma;
 	}
 
 	@Override

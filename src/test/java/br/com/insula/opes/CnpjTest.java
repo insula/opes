@@ -18,6 +18,7 @@ package br.com.insula.opes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -28,9 +29,26 @@ public class CnpjTest {
 		String[] validCnpjs = { "06.305.901/0001-78", "06305901000178", "23.144.170/0001-45", "23144170000145",
 				"46.868.328/0001-25", "42.767.194/0001-03", "58.647.246/0001-30", "37.961.612/0001-50",
 				"43.256.675/0001-09", "24.152.237/0001-56", "60.871.888/0001-60", "66.845.982/0001-20",
-				"06.074.614/0001-02", "06074614000102" };
+				"06.074.614/0001-02", "06074614000102", "86.222.998/0001-94", "74.345.224/0001-71",
+				"13.544.868/0001-02", "23.325.412/0001-05", "21.319.627/0001-80", "36.747.518/0001-30" };
 		for (String cnpj : validCnpjs) {
 			assertNotNull(Cnpj.fromString(cnpj));
+		}
+	}
+
+	@Test
+	public void testRepetidos() {
+		String[] repetidos = { "00000000000000", "11111111111111", "22222222222222", "33333333333333",
+				"44444444444444", "55555555555555", "66666666666666", "77777777777777", "88888888888888",
+				"99999999999999" };
+		for (String cnpj : repetidos) {
+			try {
+				Cnpj.fromString(cnpj);
+				fail();
+			}
+			catch (IllegalArgumentException ex) {
+				assertNotNull(ex);
+			}
 		}
 	}
 

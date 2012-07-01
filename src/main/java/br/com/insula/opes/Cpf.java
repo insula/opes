@@ -41,47 +41,19 @@ public class Cpf implements Serializable, Formattable {
 		checkNotNull(s);
 		String digits = s.replaceAll("\\D", "");
 		checkArgument(digits.matches("\\d{11}"));
-		checkArgument(isValid(digits));
+		checkArgument(!digits.matches("(\\d)\\1+"));
+		checkArgument(somaPonderada(digits.substring(0, 10)) % 11 < 2);
+		checkArgument(somaPonderada(digits) % 11 < 2);
 		return new Cpf(digits);
 	}
 
-	static boolean isValid(String digits) {
-		char[] numbers = digits.toCharArray();
+	static int somaPonderada(String digits) {
+		char[] cs = digits.toCharArray();
 		int soma = 0;
-
-		for (int i = 0; i < 9; i++) {
-			soma += Character.digit(numbers[i], 10) * (10 - i);
+		for (int i = 0; i < cs.length; i++) {
+			soma += Character.digit(cs[i], 10) * (cs.length - i);
 		}
-
-		int resto = soma % 11;
-		if (resto < 2) {
-			if (Character.digit(numbers[9], 10) != 0) {
-				return false;
-			}
-		}
-		else {
-			if (Character.digit(numbers[9], 10) != 11 - resto) {
-				return false;
-			}
-		}
-
-		soma = 0;
-		for (int i = 0; i < 10; i++) {
-			soma += Character.digit(numbers[i], 10) * (11 - i);
-		}
-
-		resto = soma % 11;
-		if (resto < 2) {
-			if (Character.digit(numbers[10], 10) != 0) {
-				return false;
-			}
-		}
-		else {
-			if (Character.digit(numbers[10], 10) != 11 - resto) {
-				return false;
-			}
-		}
-		return true;
+		return soma;
 	}
 
 	@Override

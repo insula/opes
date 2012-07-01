@@ -1,20 +1,31 @@
+/*
+    This file is part of Opes.
+
+    Opes is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Opes is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with Opes.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package br.com.insula.opes;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.io.Serializable;
-import java.util.List;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableList;
 
 public class Cns implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private static final List<String> repetidos = ImmutableList.of("0{15}", "1{15}", "2{15}", "3{15}", "4{15}",
-			"5{15}", "6{15}", "7{15}", "8{15}", "9{15}");
 
 	private final String numero;
 
@@ -26,6 +37,7 @@ public class Cns implements Serializable {
 		checkNotNull(s);
 		String digits = s.replaceAll("\\D", "");
 		checkArgument(digits.matches("\\d{15}"));
+		checkArgument(!digits.matches("(\\d)\\1+"));
 		checkArgument(isValid(digits));
 		return new Cns(digits);
 	}
@@ -53,20 +65,8 @@ public class Cns implements Serializable {
 	}
 
 	static boolean isValid(String s) {
-		if (isRepetido(s)) {
-			return false;
-		}
 		if (s.matches("[1-2]\\d{10}00[0-1]\\d") || s.matches("[7-9]\\d{14}")) {
 			return somaPonderada(s) % 11 == 0;
-		}
-		return false;
-	}
-
-	static boolean isRepetido(String s) {
-		for (String repetido : repetidos) {
-			if (s.matches(repetido)) {
-				return true;
-			}
 		}
 		return false;
 	}
