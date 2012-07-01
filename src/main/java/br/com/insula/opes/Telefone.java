@@ -40,8 +40,7 @@ public class Telefone implements Serializable, Formattable {
 	public static Telefone fromString(String s) {
 		checkNotNull(s);
 		String digits = s.replaceAll("\\D", "");
-		checkArgument(digits.matches("\\d{8,14}"));
-
+		checkArgument(digits.matches("1\\d{2}|1\\d{4}|0300\\d{8}|0800\\d{7,8}|\\d{8,13}"));
 		return new Telefone(digits);
 	}
 
@@ -68,7 +67,19 @@ public class Telefone implements Serializable, Formattable {
 	}
 
 	public boolean isContemDdd() {
-		return numero.length() > 9;
+		if (numero.matches("0[3,8]\\d+")) {
+			return false;
+		} else {
+			return numero.length() > 9;
+		}
+	}
+
+	public boolean isContemDdi() {
+		if (numero.matches("0[3,8]\\d+")) {
+			return false;
+		} else {
+			return numero.length() > 11;
+		}
 	}
 
 	@Override
@@ -80,19 +91,45 @@ public class Telefone implements Serializable, Formattable {
 		}
 		else {
 			switch (numero.length()) {
+			case 3:
+				sb.append(numero);
+				break;
+			case 5:
+				sb.append(numero);
+				break;
 			case 8:
-			case 9:
 				sb.append(String.format("%s-%s", numero.substring(0, 4), numero.substring(4)));
 				break;
+			case 9:
+				sb.append(String.format("%s-%s", numero.substring(0, 5), numero.substring(5)));
+				break;
 			case 10:
+				if (numero.matches("0800\\d+")) {
+					sb.append(String.format("%s-%s-%s", numero.substring(0, 4), numero.substring(4, 6),
+							numero.substring(6)));
+				}
+				else {
+					sb.append(String.format("(%s) %s-%s", numero.substring(0, 2), numero.substring(2, 6),
+							numero.substring(6)));
+				}
+				break;
 			case 11:
-				sb.append(String.format("(%s) %s-%s", numero.substring(0, 2), numero.substring(2, 6),
-						numero.substring(6)));
+				if (numero.matches("0[3,8]00\\d+")) {
+					sb.append(String.format("%s-%s-%s", numero.substring(0, 4), numero.substring(4, 7),
+							numero.substring(7)));
+				}
+				else {
+					sb.append(String.format("(%s) %s-%s", numero.substring(0, 2), numero.substring(2, 7),
+							numero.substring(7)));
+				}
 				break;
 			case 12:
-			case 13:
 				sb.append(String.format("+%s (%s) %s-%s", numero.substring(0, 2), numero.substring(2, 4),
 						numero.substring(4, 8), numero.substring(8)));
+				break;
+			case 13:
+				sb.append(String.format("+%s (%s) %s-%s", numero.substring(0, 2), numero.substring(2, 4),
+						numero.substring(4, 9), numero.substring(9)));
 				break;
 			}
 		}
