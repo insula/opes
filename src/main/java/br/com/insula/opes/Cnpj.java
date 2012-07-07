@@ -42,9 +42,18 @@ public class Cnpj implements Serializable, Formattable {
 		String digits = s.replaceAll("\\D", "");
 		checkArgument(digits.matches("\\d{14}"));
 		checkArgument(!digits.matches("(\\d)\\1+"));
-		checkArgument(somaPonderada(digits.substring(0, 13)) % 11 < 2);
-		checkArgument(somaPonderada(digits) % 11 < 2);
+		checkArgument(isValid(digits.substring(0, 13)));
+		checkArgument(isValid(digits));
 		return new Cnpj(digits);
+	}
+
+	static boolean isValid(String digits) {
+		if (Long.parseLong(digits) % 10 == 0) {
+			return somaPonderada(digits) % 11 < 2;
+		}
+		else {
+			return somaPonderada(digits) % 11 == 0;
+		}
 	}
 
 	static int somaPonderada(String digits) {
