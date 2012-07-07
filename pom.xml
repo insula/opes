@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.insula</groupId>
 	<artifactId>opes</artifactId>
-	<version>1.3</version>
+	<version>1.4-SNAPSHOT</version>
 	<name>Projeto Opes</name>
 	<description>Sugestões de classes imutáveis para Rich Domain Model de casos de uso do Brasil</description>
 	<organization>
