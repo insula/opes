@@ -17,9 +17,13 @@
 package br.com.insula.opes;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import com.google.common.collect.Ranges;
 
 public class CepTest {
 
@@ -45,6 +49,19 @@ public class CepTest {
 	public void testFormatTo() {
 		Cep cep = Cep.fromString("87030-020");
 		assertEquals("87030-020", String.format("%s", cep));
+	}
+
+	@Test
+	public void testCompareTo() {
+		Cep inicio = Cep.fromString("80000000");
+		Cep termino = Cep.fromString("87999999");
+		assertTrue(inicio.compareTo(termino) < 0);
+		assertTrue(termino.compareTo(inicio) > 0);
+		assertTrue(inicio.compareTo(inicio) == 0);
+
+		assertTrue(Ranges.closed(inicio, termino).contains(Cep.fromString("87030020")));
+		assertFalse(Ranges.closed(inicio, termino).contains(Cep.fromString("88000000")));
+		assertFalse(Ranges.closed(inicio, termino).contains(Cep.fromString("79999999")));
 	}
 
 }

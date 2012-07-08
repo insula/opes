@@ -27,7 +27,7 @@ import java.util.Formatter;
 
 import com.google.common.base.Objects;
 
-public class Cep implements Serializable, Formattable {
+public class Cep implements Serializable, Formattable, Comparable<Cep> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -89,6 +89,11 @@ public class Cep implements Serializable, Formattable {
 			}
 		}
 		formatter.format(sb.toString());
+	}
+
+	@Override
+	public int compareTo(Cep o) {
+		return this.numero.compareTo(o.numero);
 	}
 
 	public static Cep fromString(String s) {
