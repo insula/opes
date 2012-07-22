@@ -8,8 +8,8 @@
     <language>en-us</language>
     <copyright>&#169;2012 Insula Tecnologia</copyright>
     <item>
-      <title>File: 39,
-             Errors: 2378,
+      <title>File: 40,
+             Errors: 2484,
              Warnings: 0,
              Infos: 0
       </title>
@@ -389,6 +389,20 @@
                 </td>
                 <td>
                   11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.RangeUserType.java">br/com/insula/opes/hibernate/usertype/RangeUserType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  106
                 </td>
               </tr>
                           <tr>
