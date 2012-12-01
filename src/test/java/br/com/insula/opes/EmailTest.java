@@ -31,17 +31,17 @@ public class EmailTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testFromStringWithoutUser() {
-		Telefone.fromString("@insula.com.br");
+		Email.fromString("@insula.com.br");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testFromStringWithoutDomain() {
-		Telefone.fromString("user@");
+		Email.fromString("user@");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testFromStringWithoutAt() {
-		Telefone.fromString("user.teste");
+		Email.fromString("user.teste");
 	}
 
 	@Test
