@@ -27,7 +27,7 @@ import java.util.Formatter;
 
 import com.google.common.base.Objects;
 
-public class Telefone implements Serializable, Formattable {
+public class Telefone implements Serializable, Formattable, Comparable<Telefone> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -69,7 +69,8 @@ public class Telefone implements Serializable, Formattable {
 	public boolean isContemDdd() {
 		if (numero.matches("0[3,8]\\d+")) {
 			return false;
-		} else {
+		}
+		else {
 			return numero.length() > 9;
 		}
 	}
@@ -77,7 +78,8 @@ public class Telefone implements Serializable, Formattable {
 	public boolean isContemDdi() {
 		if (numero.matches("0[3,8]\\d+")) {
 			return false;
-		} else {
+		}
+		else {
 			return numero.length() > 11;
 		}
 	}
@@ -151,6 +153,11 @@ public class Telefone implements Serializable, Formattable {
 			}
 		}
 		formatter.format(sb.toString());
+	}
+
+	@Override
+	public int compareTo(Telefone o) {
+		return this.numero.compareTo(o.numero);
 	}
 
 }

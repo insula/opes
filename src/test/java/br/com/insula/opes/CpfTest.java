@@ -18,6 +18,7 @@ package br.com.insula.opes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -45,9 +46,10 @@ public class CpfTest {
 				"72178507294", "85542520210", "98089242210", "66100313201", "51405300238", "13187110704" };
 		for (String cpf : validCpfs) {
 			try {
-			Cpf.fromString(cpf);
-			fail();
-			} catch (IllegalArgumentException ex) {
+				Cpf.fromString(cpf);
+				fail();
+			}
+			catch (IllegalArgumentException ex) {
 				assertNotNull(ex);
 			}
 		}
@@ -102,7 +104,13 @@ public class CpfTest {
 
 	@Test
 	public void testEquals() {
-		assertEquals(CpfCnpj.fromString("00533383919"), CpfCnpj.fromString("00533383919"));
+		assertEquals(Cpf.fromString("00533383919"), Cpf.fromString("00533383919"));
+	}
+
+	@Test
+	public void testCompareTo() {
+		assertTrue(Cpf.fromString("03040503936").compareTo(Cpf.fromString("00533383919")) > 0);
+		assertTrue(Cpf.fromString("03040503936").compareTo(Cpf.fromString("03040503936")) == 0);
 	}
 
 }

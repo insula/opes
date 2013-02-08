@@ -27,7 +27,7 @@ import java.util.Formatter;
 
 import com.google.common.base.Objects;
 
-public class Cnpj implements Serializable, Formattable {
+public class Cnpj implements Serializable, Formattable, Comparable<Cnpj> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -117,6 +117,11 @@ public class Cnpj implements Serializable, Formattable {
 			}
 		}
 		formatter.format(sb.toString());
+	}
+
+	@Override
+	public int compareTo(Cnpj o) {
+		return this.numero.compareTo(o.numero);
 	}
 
 }

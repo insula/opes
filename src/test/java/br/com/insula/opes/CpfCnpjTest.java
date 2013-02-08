@@ -18,6 +18,7 @@ package br.com.insula.opes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ public class CpfCnpjTest {
 				"42.767.194/0001-03", "58.647.246/0001-30", "37.961.612/0001-50", "43.256.675/0001-09",
 				"24.152.237/0001-56", "60.871.888/0001-60", "66.845.982/0001-20", "06.074.614/0001-02",
 				"06074614000102" };
-		for (String cpfCnpj: validCpfCnpjs) {
+		for (String cpfCnpj : validCpfCnpjs) {
 			assertNotNull(CpfCnpj.fromString(cpfCnpj));
 		}
 	}
@@ -55,4 +56,12 @@ public class CpfCnpjTest {
 	public void testEquals() {
 		assertEquals(CpfCnpj.fromString("00533383919"), CpfCnpj.fromString("00533383919"));
 	}
+
+	@Test
+	public void testCompareTo() {
+		assertTrue(CpfCnpj.fromString("03040503936").compareTo(CpfCnpj.fromString("00533383919")) > 0);
+		assertTrue(CpfCnpj.fromString("00533383919").compareTo(CpfCnpj.fromString("03040503936")) < 0);
+		assertTrue(CpfCnpj.fromString("00533383919").compareTo(CpfCnpj.fromString("00533383919")) == 0);
+	}
+
 }

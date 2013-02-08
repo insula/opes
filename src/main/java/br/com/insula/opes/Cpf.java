@@ -27,7 +27,7 @@ import java.util.Formatter;
 
 import com.google.common.base.Objects;
 
-public class Cpf implements Serializable, Formattable {
+public class Cpf implements Serializable, Formattable, Comparable<Cpf> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -116,6 +116,11 @@ public class Cpf implements Serializable, Formattable {
 			}
 		}
 		formatter.format(sb.toString());
+	}
+
+	@Override
+	public int compareTo(Cpf o) {
+		return this.numero.compareTo(o.numero);
 	}
 
 }

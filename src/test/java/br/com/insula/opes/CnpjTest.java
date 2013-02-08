@@ -18,6 +18,7 @@ package br.com.insula.opes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -101,7 +102,13 @@ public class CnpjTest {
 
 	@Test
 	public void testEquals() {
-		assertEquals(CpfCnpj.fromString("06305901000178"), CpfCnpj.fromString("06.305.901/0001-78"));
+		assertEquals(Cnpj.fromString("06305901000178"), Cnpj.fromString("06.305.901/0001-78"));
+	}
+
+	@Test
+	public void testCompareTo() {
+		assertTrue(Cnpj.fromString("23144170000145").compareTo(Cnpj.fromString("06305901000178")) > 0);
+		assertTrue(Cnpj.fromString("06305901000178").compareTo(Cnpj.fromString("06305901000178")) == 0);
 	}
 
 }

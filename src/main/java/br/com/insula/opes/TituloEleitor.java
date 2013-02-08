@@ -27,7 +27,7 @@ import java.util.Formatter;
 
 import com.google.common.base.Objects;
 
-public class TituloEleitor implements Serializable, Formattable {
+public class TituloEleitor implements Serializable, Formattable, Comparable<TituloEleitor> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -97,6 +97,11 @@ public class TituloEleitor implements Serializable, Formattable {
 			}
 		}
 		formatter.format(sb.toString());
+	}
+
+	@Override
+	public int compareTo(TituloEleitor o) {
+		return this.numero.compareTo(o.numero);
 	}
 
 	static boolean isValid(String digits) {

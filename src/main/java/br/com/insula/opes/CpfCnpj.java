@@ -22,7 +22,7 @@ import java.util.Formatter;
 
 import com.google.common.base.Objects;
 
-public class CpfCnpj implements Serializable, Formattable {
+public class CpfCnpj implements Serializable, Formattable, Comparable<CpfCnpj> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -93,6 +93,11 @@ public class CpfCnpj implements Serializable, Formattable {
 		else {
 			cnpj.formatTo(formatter, flags, width, precision);
 		}
+	}
+
+	@Override
+	public int compareTo(CpfCnpj o) {
+		return String.format("%s", this).compareTo(String.format("%s", o));
 	}
 
 	public boolean isCpf() {
