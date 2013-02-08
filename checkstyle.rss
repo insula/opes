@@ -6,10 +6,10 @@
     <link>${project.url}</link>
     <description>Projeto Opes - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2012 Insula Tecnologia</copyright>
+    <copyright>&#169;2013 Insula Tecnologia</copyright>
     <item>
       <title>File: 40,
-             Errors: 2484,
+             Errors: 2516,
              Warnings: 0,
              Infos: 0
       </title>
@@ -220,7 +220,7 @@
                   0
                 </td>
                 <td>
-                  184
+                  194
                 </td>
               </tr>
                           <tr>
@@ -360,7 +360,7 @@
                   0
                 </td>
                 <td>
-                  160
+                  166
                 </td>
               </tr>
                           <tr>
@@ -393,7 +393,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.RangeUserType.java">br/com/insula/opes/hibernate/usertype/RangeUserType.java</a>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.CnpjUserType.java">br/com/insula/opes/hibernate/usertype/CnpjUserType.java</a>
                 </td>
                 <td>
                   0
@@ -402,7 +402,7 @@
                   0
                 </td>
                 <td>
-                  106
+                  45
                 </td>
               </tr>
                           <tr>
@@ -416,12 +416,12 @@
                   0
                 </td>
                 <td>
-                  95
+                  101
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.CnpjUserType.java">br/com/insula/opes/hibernate/usertype/CnpjUserType.java</a>
+                  <a href="${project.url}/checkstyle.html#br.com.insula.opes.hibernate.usertype.RangeUserType.java">br/com/insula/opes/hibernate/usertype/RangeUserType.java</a>
                 </td>
                 <td>
                   0
@@ -430,7 +430,7 @@
                   0
                 </td>
                 <td>
-                  45
+                  106
                 </td>
               </tr>
                           <tr>
@@ -500,7 +500,7 @@
                   0
                 </td>
                 <td>
-                  121
+                  126
                 </td>
               </tr>
                           <tr>
@@ -556,7 +556,7 @@
                   0
                 </td>
                 <td>
-                  117
+                  122
                 </td>
               </tr>
                           <tr>
