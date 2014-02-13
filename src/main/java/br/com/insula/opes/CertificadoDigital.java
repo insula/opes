@@ -132,6 +132,7 @@ public final class CertificadoDigital implements Serializable {
 			transformList.add(signatureFactory.newTransform(C14N_TRANSFORM_METHOD, (TransformParameterSpec) null));
 
 			Node child = findFirstElementChild(element);
+			((Element)child).setIdAttribute("Id", true);
 
 			String id = child.getAttributes().getNamedItem("Id").getNodeValue();
 			String uri = String.format("#%s", id);
