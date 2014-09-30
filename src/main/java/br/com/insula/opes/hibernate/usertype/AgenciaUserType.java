@@ -35,9 +35,7 @@ public class AgenciaUserType extends ImmutableUserType {
 		if (rs.wasNull()) {
 			return null;
 		}
-		else {
-			return Agencia.fromString(value);
-		}
+		return Agencia.fromString(value);
 	}
 
 	@Override
