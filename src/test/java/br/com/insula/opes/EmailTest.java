@@ -43,6 +43,11 @@ public class EmailTest {
 	public void testFromStringWithoutAt() {
 		Email.fromString("user.teste");
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testFromStringNull() {
+		Email.fromString(null);
+	}
 
 	@Test
 	public void testToString() {
