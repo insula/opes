@@ -33,11 +33,10 @@ public class EmailUserType extends ImmutableUserType {
 	public Object nullSafeGet(ResultSet rs, String[] names, Object owner)
 			throws HibernateException, SQLException {
 		String value = rs.getString(names[0]);
-		if (rs.wasNull()) {
+		if (rs.wasNull()) 
 			return null;
-		} else {
-			return Email.fromString(value);
-		}
+			
+		return Email.fromString(value);
 	}
 
 	@Override
